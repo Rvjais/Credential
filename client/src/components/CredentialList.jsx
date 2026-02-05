@@ -41,7 +41,7 @@ const CredentialList = ({ credentials, onEdit, onDelete }) => {
 
     return (
         <div className="space-y-6 md:space-y-8">
-            <div className="flex flex-col md:flex-row gap-4 justify-between items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm border border-slate-700/50">
+            <div className="flex flex-col md:flex-row gap-4 justify-between items-center bg-white/5 p-4 rounded-xl backdrop-blur-sm border border-slate-700/50 relative z-30">
                 <div className="relative flex-1 w-full md:max-w-md group">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <Search className="h-5 w-5 text-gray-400 group-focus-within:text-blue-400 transition-colors" />
@@ -139,7 +139,7 @@ const CredentialList = ({ credentials, onEdit, onDelete }) => {
                                             {cred.department}
                                         </span>
                                     </div>
-                                    <div className="flex space-x-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                    <div className="flex space-x-1 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                                         <button onClick={() => onEdit(cred)} className="p-2 text-gray-400 hover:text-blue-400 hover:bg-blue-500/10 rounded-lg transition-colors">
                                             <Edit2 size={18} />
                                         </button>
@@ -153,7 +153,7 @@ const CredentialList = ({ credentials, onEdit, onDelete }) => {
                                     <div className="group/field p-2 rounded-lg hover:bg-slate-700/30 transition-colors -mx-2">
                                         <div className="flex items-center justify-between">
                                             <span className="text-xs uppercase tracking-wider text-slate-500 font-semibold">Username</span>
-                                            <button onClick={() => copyToClipboard(cred.username)} className="text-slate-500 hover:text-blue-400 opacity-0 group-hover/field:opacity-100 transition-opacity">
+                                            <button onClick={() => copyToClipboard(cred.username)} className="text-slate-500 hover:text-blue-400 opacity-100 md:opacity-0 md:group-hover/field:opacity-100 transition-opacity">
                                                 <Copy size={14} />
                                             </button>
                                         </div>
@@ -163,7 +163,7 @@ const CredentialList = ({ credentials, onEdit, onDelete }) => {
                                     <div className="group/field p-2 rounded-lg hover:bg-slate-700/30 transition-colors -mx-2">
                                         <div className="flex items-center justify-between">
                                             <span className="text-xs uppercase tracking-wider text-slate-500 font-semibold">Password</span>
-                                            <div className="flex space-x-2 opacity-0 group-hover/field:opacity-100 transition-opacity">
+                                            <div className="flex space-x-2 opacity-100 md:opacity-0 md:group-hover/field:opacity-100 transition-opacity">
                                                 <button onClick={() => togglePassword(cred._id)} className="text-slate-500 hover:text-blue-400">
                                                     {visiblePasswords[cred._id] ? <EyeOff size={14} /> : <Eye size={14} />}
                                                 </button>
